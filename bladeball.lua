@@ -10,15 +10,19 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local Version = "A1-02"
-local i = 0
+
 local realBall = nil
 local lastPosition = nil
 local lastTime = nil
+
 local hasPressedF = false 
 local autoBall = true
 local teleport = true
 local autoTrainingBall = true
+
+local i = 0
 local lastTeleportCheck = tick() 
+local teleportDelay = 0.1
 
 -- Erstelle das Fenster
 local Window = Fluent:CreateWindow({
