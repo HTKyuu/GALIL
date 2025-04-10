@@ -140,10 +140,12 @@ RunService.RenderStepped:Connect(function(dt)
             lastTime = nil
         end
     end
+
     if teleport then 
-        -- Check if enough time has passed for the teleport logic to run
         local currentTime = tick()  -- Get the current time
-        if currentTime - lastTeleportCheck >= teleportDelay then
+        
+        -- Only proceed if enough time has passed since the last teleport check
+        if lastTeleportCheck and currentTime - lastTeleportCheck >= teleportDelay then
             lastTeleportCheck = currentTime  -- Update the last teleport check time
 
             -- find ball
@@ -159,7 +161,7 @@ RunService.RenderStepped:Connect(function(dt)
                 -- teleport logic
                 if playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart") then
                     local radius = 8
-                    local steps = 12
+                    local steps = 24
 
                     i += 1
                     local angle = math.rad((i % steps) / steps * 360)
