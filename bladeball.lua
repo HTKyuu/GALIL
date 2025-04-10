@@ -99,6 +99,17 @@ do
                 teleportHeight = Value
         end
     })
+        local Slider = Tabs.Teleport:AddSlider("Slider", {
+        Title = "Speed",
+        Description = "",
+        Default = 2,
+        Min = 1,
+        Max = 4,
+        Rounding = 0,
+        Callback = function(Value)
+                teleportSpeedDiv = Value
+        end
+    })
     Tabs.Info:AddButton({
         Title = "Copy Discord Invite",
         Description = "",
@@ -231,7 +242,7 @@ RunService.RenderStepped:Connect(function(dt)
                 -- teleport logic
                 if playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart") then
                     local radius = 8
-                    local steps = 12
+                    local steps = (24 / teleportSpeedDiv)
 
                     i += 1
                     local angle = math.rad((i % steps) / steps * 360)
