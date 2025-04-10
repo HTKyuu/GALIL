@@ -158,7 +158,7 @@ RunService.RenderStepped:Connect(function(dt)
                 -- teleport logic
                 if playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart") then
                     local radius = 8
-                    local steps = 24
+                    local steps = 12
 
                     i += 1
                     local angle = math.rad((i % steps) / steps * 360)
