@@ -16,9 +16,7 @@ local realBall = nil
 local lastPosition = nil
 local lastTime = nil
 
-local Connection = nil
 local hasPressedF = false
-local Cooldown = tick()
 local autoBall = true
 local teleport = true
 local autoTrainingBall = true
@@ -220,8 +218,6 @@ RunService.RenderStepped:Connect(function(dt)
                     VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game) -- F key release
                     -- print(string.format("Success distance: %.2f studs, Speed Towards Player: %.2f studs/sec", distanceToPlayer, speedTowardsPlayer))
                     hasPressedF = true
-                    Cooldown = tick()
-                    hasPressedF = false 
                 end
             end
 
@@ -229,10 +225,10 @@ RunService.RenderStepped:Connect(function(dt)
             lastPosition = currentPosition
             lastTime = currentTime
         -- check if targetting different player
-     --   else
-          --  if realBall and realBall:GetAttribute("target") ~= plr.Name then
-             --   hasPressedF = false
-           -- end
+        else
+            if realBall and realBall:GetAttribute("target") ~= plr.Name then
+                hasPressedF = false
+            end
             lastPosition = nil
             lastTime = nil
         end
@@ -315,8 +311,6 @@ RunService.RenderStepped:Connect(function(dt)
                     VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game) -- F key release
                     -- print(string.format("Success distance: %.2f studs, Speed Towards Player: %.2f studs/sec", distanceToPlayer, speedTowardsPlayer))
                     hasPressedF = true 
-                    Cooldown = tick()
-                    hasPressedF = false 
                 end
             end
 
@@ -324,10 +318,10 @@ RunService.RenderStepped:Connect(function(dt)
             lastPosition = currentPosition
             lastTime = currentTime
         -- check if targetting different player
-       -- else
-         --   if realBall and realBall:GetAttribute("target") ~= plr.Name then
-           --     hasPressedF = false
-          --  end
+        else
+            if realBall and realBall:GetAttribute("target") ~= plr.Name then
+                hasPressedF = false
+            end
             lastPosition = nil
             lastTime = nil
         end
