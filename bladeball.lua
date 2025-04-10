@@ -110,6 +110,17 @@ do
                 teleportSpeedDiv = Value
         end
     })
+        local Slider = Tabs.Teleport:AddSlider("Slider", {
+        Title = "Angle",
+        Description = "",
+        Default = 360,
+        Min = 0,
+        Max = 360,
+        Rounding = 0,
+        Callback = function(Value)
+                angle = Value
+        end
+    })
     Tabs.Info:AddButton({
         Title = "Copy Discord Invite",
         Description = "",
@@ -245,7 +256,7 @@ RunService.RenderStepped:Connect(function(dt)
                     local steps = (24 / teleportSpeedDiv)
 
                     i += 1
-                    local angle = math.rad((i % steps) / steps * 360)
+                    local angle = math.rad((i % steps) / steps * angle)
                     local x = math.cos(angle) * radius
                     local z = math.sin(angle) * radius
                     local y = teleportHeight
