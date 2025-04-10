@@ -38,10 +38,10 @@ local Window = Fluent:CreateWindow({
 
 -- Erstelle Tabs
 local Tabs = {
-    Info = Window:AddTab({ Title = "Info", Icon = "" }),
-    Main = Window:AddTab({ Title = "AutoBall", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "" })
+    Info = Window:AddTab({ Title = "Info", Icon = "rbxassetid://10734961133" }),
+    Main = Window:AddTab({ Title = "AutoBall", Icon = "rbxassetid://10723376614" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "lucide-person-standing" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
 local Options = Fluent.Options
