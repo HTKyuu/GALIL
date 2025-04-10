@@ -18,6 +18,7 @@ local hasPressedF = false
 local autoBall = true
 local teleport = true
 local autoTrainingBall = true
+local lastTeleportCheck = 0
 
 -- Erstelle das Fenster
 local Window = Fluent:CreateWindow({
