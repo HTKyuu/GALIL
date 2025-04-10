@@ -16,6 +16,7 @@ StarterGui:SetCore("SendNotification", {
 queueonteleport([[
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
 ]])
+print("Auto Injected")
 
 
 local i = 0
