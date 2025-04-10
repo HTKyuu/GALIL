@@ -6,9 +6,35 @@ local plr = game.Players.LocalPlayer
 local iconId = "rbxassetid://104855869460943"
 
 -- auto inject
-queueonteleport([[
-loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
-]])
+local function safeInject()
+    local success, message = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
+    end)
+    
+    if not success then
+        warn("Injection failed: " .. message)
+        notify("GALIL", "Injection failed. Check the output for errors.", 5)
+    end
+end
+
+-- Wait for player to load
+game.Players.PlayerAdded:Connect(function(player)
+    if player == game.Players.LocalPlayer then
+        -- Wait for the player's character to load completely
+        player.CharacterAdded:Wait()  -- Wait for the character to be added
+        
+        -- After the character has loaded, execute the injection
+        safeInject()
+    end
+end)
+
+-- auto inject after teleport
+queueonteleport([[game.Players.PlayerAdded:Connect(function(player)
+    if player == game.Players.LocalPlayer then
+        player.CharacterAdded:Wait()
+        safeInject() 
+    end
+end)]])
 
 
 local i = 0
