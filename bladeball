@@ -3,20 +3,12 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local UserInputService = game:GetService("UserInputService")
 local StarterGui = game:GetService("StarterGui")
 local plr = game.Players.LocalPlayer
-
---print("Welcome", plr.Name, "\ndiscord.gg/95zRSYtFe4\n")
-StarterGui:SetCore("SendNotification", {
-    Title = plr.Name,
-    Text = "discord.gg/95zRSYtFe4",
-    Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-    Duration = 5  -- How long the notification lasts (in seconds)
-})
+local iconId = "rbxassetid://1234567890"
 
 -- auto inject
 queueonteleport([[
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
 ]])
-print("Auto Injected")
 
 
 local i = 0
@@ -26,6 +18,19 @@ local lastTime = nil
 local hasPressedF = false 
 local autoBall = false
 local teleport = false
+
+-- notifyer
+local function notify(title, text)
+    StarterGui:SetCore("SendNotification", {
+        Title = title,
+        Text = text,
+        Icon = iconId,
+        Duration = duration
+    })
+end
+
+--print("Welcome", plr.Name, "\ndiscord.gg/95zRSYtFe4\n")
+notify(plr.Name, "discord.gg/95zRSYtFe4", 5)
 
 -- find ball function (needed later)
 local function findRealBall()
@@ -54,57 +59,27 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         autoBall = not autoBall  -- Toggle the flag on/off
                 -- Show a notification at the bottom-right corner
         if autoBall then
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "AutoBall is enabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "AutoBall is enabled now.", 2)
         else
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "AutoBall is disabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "AutoBall is disabled now.", 2)
         end
     end
     if input.KeyCode == Enum.KeyCode.P then
         teleport = not teleport  -- Toggle the flag on/off
                 -- Show a notification at the bottom-right corner
         if teleport then
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "Teleport is enabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "Teleport is enabled now.", 2)
         else
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "Teleport is disabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "Teleport is disabled now.", 2)
         end
     end
     if input.KeyCode == Enum.KeyCode.T then
         autoTrainingBall = not autoTrainingBall  -- Toggle the flag on/off
                 -- Show a notification at the bottom-right corner
         if autoTrainingBall then
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "AutoTraining is enabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "AutoTraining is enabled now.", 2)
         else
-            StarterGui:SetCore("SendNotification", {
-                Title = "GALIL",
-                Text = "AutoTraining is disabled now.",
-                Icon = "rbxassetid://1234567890",  -- You can set a custom icon if needed
-                Duration = 2  -- How long the notification lasts (in seconds)
-            })
+            notify("GALIL", "AutoTraining is disabled now.", 2)
         end
     end
 end)
