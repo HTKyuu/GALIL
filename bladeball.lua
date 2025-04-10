@@ -38,9 +38,9 @@ local Window = Fluent:CreateWindow({
 
 -- Erstelle Tabs
 local Tabs = {
-    Info = Window:AddTab({ Title = "Info", Icon = "rbxassetid://10734961133" }),
-    Main = Window:AddTab({ Title = "AutoBall", Icon = "rbxassetid://10723376614" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "lucide-person-standing" }),
+    Info = Window:AddTab({ Title = "Info", Icon = "rbxassetid://10734951847" }),
+    Main = Window:AddTab({ Title = "AutoBall", Icon = "rbxassetid://10734929723" }),
+    Teleport = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://10734920149" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
