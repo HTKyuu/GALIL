@@ -46,7 +46,7 @@ local autoBall = false
 local teleport = false
 
 -- notifyer
-local function notify(title, text)
+local function notify(title, text, duration)
     StarterGui:SetCore("SendNotification", {
         Title = title,
         Text = text,
