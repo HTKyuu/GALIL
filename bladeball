@@ -27,7 +27,7 @@ game.Players.PlayerAdded:Connect(function(player)
         safeInject()
     end
 end)
-
+task.wait(3)
 -- auto inject after teleport
 queueonteleport([[game.Players.PlayerAdded:Connect(function(player)
     if player == game.Players.LocalPlayer then
