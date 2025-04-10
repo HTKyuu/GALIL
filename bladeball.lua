@@ -10,6 +10,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local Version = "A1-02"
+local discordLink = "discord.gg/95zRSYtFe4"
 
 local realBall = nil
 local lastPosition = nil
@@ -49,14 +50,14 @@ local Options = Fluent.Options
 do
     Fluent:Notify({
         Title = "Join our Discord",
-        Content = "discord.gg/95zRSYtFe4",
+        Content = discordLink,
         SubContent = "keyless scripts",  -- Optional
         Duration = 8  -- Benachrichtigung verschwindet nach 5 Sekunden
     })
 
     Tabs.Info:AddParagraph({
         Title = "Welcome " .. plr.Name,
-        Content = "discord.gg/95zRSYtFe4"
+        Content = discordLink
     })
 
 
@@ -99,10 +100,10 @@ do
         end
     })
     Tabs.Info:AddButton({
-        Title = "Join Discord",
+        Title = "Copy Discord Invite",
         Description = "",
-        Callback = function()
-                game:GetService("GuiService"):OpenBrowserWindow("https://discord.gg/95zRSYtFe4")
+        Callback = function()  
+                setclipboard(discordLink)  
     end
     })
 end
@@ -130,8 +131,7 @@ queueonteleport([[
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
 ]])
 
---print("Welcome", plr.Name, "\ndiscord.gg/95zRSYtFe4\n")
--- notify(plr.Name, "discord.gg/95zRSYtFe4", 5)
+--print("Welcome", plr.Name, discordLink)
 
 -- find ball function (needed later)
 local function findRealBall()
