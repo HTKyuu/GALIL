@@ -96,6 +96,7 @@ do
         Title = "Join Discord",
         Description = "",
         Callback = function()
+                game:GetService("GuiService"):OpenBrowserWindow("https://discord.gg/95zRSYtFe4")
     end
     })
 end
