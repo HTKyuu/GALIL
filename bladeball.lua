@@ -97,6 +97,11 @@ do
         Rounding = 0,
         Callback = function(Value)
                 teleportHeight = Value
+                Fluent:Notify({
+                    Title = "GALIL",
+                    Content = "Discord link copied to clipboard",
+                    Duration = 2
+                })
         end
     })
     Tabs.Info:AddButton({
