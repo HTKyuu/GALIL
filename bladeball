@@ -14,7 +14,7 @@ StarterGui:SetCore("SendNotification", {
 
 -- auto inject
 queueonteleport([[
-loadstring(game:HttpGet("https://github.com/HTKyuu/GALIL/new/main"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HTKyuu/GALIL/refs/heads/main/bladeball"))()
 ]])
 
 
