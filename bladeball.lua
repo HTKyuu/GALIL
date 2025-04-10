@@ -22,8 +22,8 @@ local lastTeleportCheck = tick()
 
 -- Erstelle das Fenster
 local Window = Fluent:CreateWindow({
-    Title = "GALIL " .. Version,
-    SubTitle = "by kyuu",
+    Title = " GALIL",
+    SubTitle = Version,
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,  -- Blur kann deaktiviert werden, falls es Probleme gibt
