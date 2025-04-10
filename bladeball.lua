@@ -97,18 +97,18 @@ do
         Rounding = 0,
         Callback = function(Value)
                 teleportHeight = Value
-                Fluent:Notify({
-                    Title = "GALIL",
-                    Content = "Discord link copied to clipboard",
-                    Duration = 2
-                })
         end
     })
     Tabs.Info:AddButton({
         Title = "Copy Discord Invite",
         Description = "",
         Callback = function()  
-                setclipboard(discordLink)  
+                setclipboard(discordLink)
+                Fluent:Notify({
+                    Title = "GALIL",
+                    Content = "Discord link copied to clipboard",
+                    Duration = 2
+                })
     end
     })
 end
