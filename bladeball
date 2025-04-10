@@ -3,7 +3,7 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local UserInputService = game:GetService("UserInputService")
 local StarterGui = game:GetService("StarterGui")
 local plr = game.Players.LocalPlayer
-local iconId = "rbxassetid://1234567890"
+local iconId = "rbxassetid://104855869460943"
 
 -- auto inject
 queueonteleport([[
