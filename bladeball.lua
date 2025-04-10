@@ -33,7 +33,7 @@ local Window = Fluent:CreateWindow({
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,  -- Blur kann deaktiviert werden, falls es Probleme gibt
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl  -- Verwendet Minimize-Taste
+    MinimizeKey = Enum.KeyCode.Tab  -- Verwendet Minimize-Taste
 })
 
 -- Erstelle Tabs
