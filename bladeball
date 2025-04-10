@@ -140,33 +140,38 @@ RunService.RenderStepped:Connect(function(dt)
         end
     end
     if teleport then 
-        -- find ball
-        if not realBall or not realBall:IsDescendantOf(workspace.Balls) then
-            realBall = findRealBall()
-        end
+        -- Check if enough time has passed for the teleport logic to run
+        local currentTime = tick()  -- Get the current time
+        if currentTime - lastTeleportCheck >= teleportDelay then
+            lastTeleportCheck = currentTime  -- Update the last teleport check time
 
-        -- get player and ball position
-        if realBall then
-            local ballPosition = realBall.CFrame
-            local playerCharacter = workspace.Alive:FindFirstChild(plr.Name)
-
-                -- teleport
-            if playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart") then
-                local radius = 8
-                local steps = 24
-
-                i += 1
-                local angle = math.rad((i % steps) / steps * 360)
-                local x = math.cos(angle) * radius
-                local z = math.sin(angle) * radius
-                local y = -10
-
-
-                local newPos = ballPosition.Position + Vector3.new(x, y, z)
-                playerCharacter.HumanoidRootPart.CFrame = CFrame.new(newPos, ballPosition.Position)
+            -- find ball
+            if not realBall or not realBall:IsDescendantOf(workspace.Balls) then
+                realBall = findRealBall()
             end
+
+            -- get player and ball position
+            if realBall then
+                local ballPosition = realBall.CFrame
+                local playerCharacter = workspace.Alive:FindFirstChild(plr.Name)
+
+                -- teleport logic
+                if playerCharacter and playerCharacter:FindFirstChild("HumanoidRootPart") then
+                    local radius = 8
+                    local steps = 24
+
+                    i += 1
+                    local angle = math.rad((i % steps) / steps * 360)
+                    local x = math.cos(angle) * radius
+                    local z = math.sin(angle) * radius
+                    local y = -10
+
+                    local newPos = ballPosition.Position + Vector3.new(x, y, z)
+                    playerCharacter.HumanoidRootPart.CFrame = CFrame.new(newPos, ballPosition.Position)
+                end
             else
                 return
+            end
         end
     end
 
