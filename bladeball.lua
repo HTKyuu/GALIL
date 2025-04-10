@@ -75,11 +75,12 @@ do
     local Slider = Tabs.Main:AddSlider("Slider", {
         Title = "Increase Range",
         Description = "[WARNING] Only on\nhigh ping recommended",
-        Default = 0.095,
-        Min = 0,
-        Max = 0.2,
-        Rounding = 3,
+        Default = 15,
+        Min = 5,
+        Max = 50,
+        Rounding = 0,
         Callback = function(Value)
+                defaultRange = Value
         end
     })
         local Slider = Tabs.Teleport:AddSlider("Slider", {
@@ -90,6 +91,7 @@ do
         Max = 20,
         Rounding = 0,
         Callback = function(Value)
+                teleportHeight = Value
         end
     })
     Tabs.Info:AddButton({
@@ -179,7 +181,7 @@ RunService.RenderStepped:Connect(function(dt)
             local playerPosition = plr.Character and plr.Character.PrimaryPart and plr.Character.PrimaryPart.CFrame.Position
             if playerPosition then
                 local distanceToPlayer = (currentPosition - playerPosition).Magnitude
-                local dynamicDistance = 15 + (speedTowardsPlayer * 0.095) 
+                local dynamicDistance = defaultRange + (speedTowardsPlayer * 0.095) 
                 if distanceToPlayer < dynamicDistance and not hasPressedF then
                     VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game) -- F key press
                     VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game) -- F key release
@@ -226,7 +228,7 @@ RunService.RenderStepped:Connect(function(dt)
                     local angle = math.rad((i % steps) / steps * 360)
                     local x = math.cos(angle) * radius
                     local z = math.sin(angle) * radius
-                    local y = -12
+                    local y = teleportHeight
 
                     local newPos = ballPosition.Position + Vector3.new(x, y, z)
                     playerCharacter.HumanoidRootPart.CFrame = CFrame.new(newPos, ballPosition.Position)
@@ -272,7 +274,7 @@ RunService.RenderStepped:Connect(function(dt)
             local playerPosition = plr.Character and plr.Character.PrimaryPart and plr.Character.PrimaryPart.CFrame.Position
             if playerPosition then
                 local distanceToPlayer = (currentPosition - playerPosition).Magnitude
-                local dynamicDistance = 15 + (speedTowardsPlayer * 0.095) 
+                local dynamicDistance = defaultRange + (speedTowardsPlayer * 0.095) 
                 if distanceToPlayer < dynamicDistance and not hasPressedF then
                     VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game) -- F key press
                     VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game) -- F key release
