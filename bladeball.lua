@@ -221,7 +221,7 @@ RunService.RenderStepped:Connect(function(dt)
                     -- print(string.format("Success distance: %.2f studs, Speed Towards Player: %.2f studs/sec", distanceToPlayer, speedTowardsPlayer))
                     hasPressedF = true
                     Cooldown = tick()
-                    hasPressedF = true 
+                    hasPressedF = false 
                 end
             end
 
