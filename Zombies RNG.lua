@@ -3,8 +3,12 @@ local plr = game.Players.LocalPlayer
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-local Version = "B1-01"
+local Version = "A1-02"
 local autoRoll = false
+local tpToCherrys = false
+local tpToCoffee = false
+local currentCherryIndex = 1
+local currentCoffeeIndex = 1
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hrp = char:WaitForChild("HumanoidRootPart")
 
@@ -75,10 +79,9 @@ Fluent:Notify({
 })
 
 
-
 while true do
     if not autoRoll then
-        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("Roll"):InvokeServer()
-        task.wait(0.2)
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("Roll"):InvokeServer()
     end
-end)
+    task.wait(0.01) 
+end
