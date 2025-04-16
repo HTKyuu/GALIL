@@ -79,6 +79,6 @@ Fluent:Notify({
 RunService.RenderStepped:Connect(function(dt)
     local now = tick()
     if not autoRoll then
-        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GetRollCardID"):InvokeServer()
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("Roll"):InvokeServer()
     end
 end)
